@@ -1,41 +1,32 @@
 # Python EXE Builder v2.0
 
-A small Windows-friendly Tkinter utility that packages a Python script with PyInstaller.
+A simple Tkinter tool for converting one Python script into a single Windows EXE using PyInstaller.
 
 ## Requirements
 
-- Python 3.10 or newer
+- Python 3.10+
 - PyInstaller
 
-Install the dependency:
+Install:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-## Run
+Run:
 
 ```bash
 python exe_v2.py
 ```
 
-## Features
+## How to use
 
-- Browse for a Python `.py` file.
-- Choose the output directory.
-- Build as a single executable (`--onefile`) or as a folder (`--onedir`).
-- Optional windowed mode (`--windowed`) for GUI programs.
-- Run PyInstaller in a background thread so the Tkinter interface stays responsive.
-- Use the active Python interpreter to launch PyInstaller.
-- Build artifacts are isolated in a temporary directory and cleaned up automatically.
-- Existing output is replaced only after confirmation.
+1. Select a `.py` file.
+2. Choose the output folder.
+3. Click **Build EXE**.
 
-## Notes and limitations
+The program runs PyInstaller in a background thread so the window stays responsive. Temporary build files are kept separate and cleaned up automatically. If an EXE with the same name already exists, you are asked before it is replaced.
 
-- This tool packages the selected entry-point script. Projects with extra data files, dynamic imports, plugins, or non-standard resources may need additional PyInstaller options such as `--add-data` or `--hidden-import`.
-- A successful build does not guarantee that the executable works on every Windows version or computer. Test the result on a clean target machine.
-- Build output is currently captured and shown when an error occurs; live percentage progress is not available because PyInstaller does not provide a reliable percentage for this workflow.
+## Note
 
-## Learning goals
-
-This exercise demonstrates Tkinter widgets, pathlib, subprocess, temporary directories, threads, queues, exception handling, and safe file replacement.
+This version packages a single entry-point script. Projects that need extra data files or hidden imports may require additional PyInstaller settings.
