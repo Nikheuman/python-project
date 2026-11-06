@@ -1,40 +1,41 @@
+# Python EXE Builder v2.0
+
+A small Windows-friendly Tkinter utility that packages a Python script with PyInstaller.
+
 ## Requirements
 
-* Python 3.10 or newer installed
-* PyInstaller installed
+- Python 3.10 or newer
+- PyInstaller
 
-Install PyInstaller:
-
-```bash
-pip install pyinstaller
-```
-
-Check PyInstaller installation:
+Install the dependency:
 
 ```bash
-pyinstaller --version
+python -m pip install -r requirements.txt
 ```
 
-## How to Use
+## Run
 
-1. Run the application.
-2. Click **Browse** and select a Python (`.py`) file.
-3. Click **Build EXE** to start the build process.
-4. Wait until the process is completed.
-5. The generated executable file will be saved in the output folder.
+```bash
+python exe_v2.py
+```
 
-## Notes
+## Features
 
-* This project is designed for Windows.
-* The output directory is automatically created by the application.
-* Temporary build files are removed automatically after the build process.
-* PyInstaller must be installed before building executable files.
+- Browse for a Python `.py` file.
+- Choose the output directory.
+- Build as a single executable (`--onefile`) or as a folder (`--onedir`).
+- Optional windowed mode (`--windowed`) for GUI programs.
+- Run PyInstaller in a background thread so the Tkinter interface stays responsive.
+- Use the active Python interpreter to launch PyInstaller.
+- Build artifacts are isolated in a temporary directory and cleaned up automatically.
+- Existing output is replaced only after confirmation.
 
-## Version
+## Notes and limitations
 
-**Python EXE Builder v1.0**
+- This tool packages the selected entry-point script. Projects with extra data files, dynamic imports, plugins, or non-standard resources may need additional PyInstaller options such as `--add-data` or `--hidden-import`.
+- A successful build does not guarantee that the executable works on every Windows version or computer. Test the result on a clean target machine.
+- Build output is currently captured and shown when an error occurs; live percentage progress is not available because PyInstaller does not provide a reliable percentage for this workflow.
 
-## Author
+## Learning goals
 
-Nikheuman
-
+This exercise demonstrates Tkinter widgets, pathlib, subprocess, temporary directories, threads, queues, exception handling, and safe file replacement.
